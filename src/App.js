@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [firstColor, setFirstColor] = useState('#FF6F61');
+  const [secondColor, setSecondColor] = useState('#D69C2F');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="Input">
+          <input
+            style={{ backgroundColor: firstColor }}
+            onChange={({ target: { value } }) => setFirstColor(value)}
+            value={firstColor}
+          />
+        </div>
+        <div className="Input">
+          <input
+            style={{ backgroundColor: secondColor }}
+            onChange={({ target: { value } }) => setSecondColor(value)}
+            value={secondColor}
+          />
+        </div>
       </header>
     </div>
   );
